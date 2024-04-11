@@ -7,7 +7,8 @@ import edu.wpi.first.math.util.Units;
 
 public class HardwareConstants {
     
-    public static final double maxModuleSpeed = Units.feetToMeters(12.5);
+    public static final double maxNeoModuleSpeed = Units.feetToMeters(16.6);
+    public static final double maxKrakenModuleSpeed = Units.feetToMeters(17.1);
 
     public class ModuleConfigs {
         public static final ModuleConfig LEFT_FRONT = new ModuleConfig(

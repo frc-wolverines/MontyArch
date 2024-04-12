@@ -1,10 +1,8 @@
 package com.frc5274.robot.subsystems.modules;
 
 import com.ctre.phoenix6.hardware.CANcoder;
+import com.ctre.phoenix6.hardware.TalonFX;
 import com.frc5274.lib.config.PIDConstants;
-import com.revrobotics.CANSparkMax;
-import com.revrobotics.RelativeEncoder;
-import com.revrobotics.CANSparkLowLevel.MotorType;
 
 import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Rotation2d;
@@ -57,19 +55,19 @@ public class KrakenModuleIO {
 
     //Encoder Management
     public double getTrackVelocity() {
-        return driveMotor.getVelocity() * trackConversionFactor;
+        return driveMotor.getVelocity().getValueAsDouble() * trackConversionFactor;
     }
 
     public double getTrackPosition() {
-        return driveMotor.getPosition() * trackConversionFactor;
+        return driveMotor.getPosition().getValueAsDouble() * trackConversionFactor;
     }
 
     public double getModuleAngleVelocity() {
-        return pivotMotor.getVelocity() * pivotConversionFactor;
+        return pivotMotor.getVelocity().getValueAsDouble() * pivotConversionFactor;
     }
 
     public double getModuleAngle() {
-        return pivotMotor.getPosition() * pivotConversionFactor;
+        return pivotMotor.getPosition().getValueAsDouble() * pivotConversionFactor;
     }
 
     public double getAbsoluteModuleAngle() {
@@ -106,3 +104,4 @@ public class KrakenModuleIO {
         driveMotor.stopMotor();
         pivotMotor.stopMotor();
     }
+}
